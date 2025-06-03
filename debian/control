@@ -3,7 +3,7 @@ Section: libdevel
 Priority: optional
 Maintainer: Eric Dorland <eric@debian.org>
 Build-Depends: debhelper-compat (= 12)
-Build-Depends-Indep: mingw-w64
+Build-Depends-Indep: mingw-w64 [!sw64]
 Standards-Version: 4.5.0.3
 Rules-Requires-Root: no
 Homepage: https://www.gnupg.org/
