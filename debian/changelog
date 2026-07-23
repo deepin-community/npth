@@ -1,3 +1,9 @@
+npth (1.6-3deepin2) unstable; urgency=medium
+
+  * feat: add loong64 support.
+
+ -- lichenggang <lichenggang@uniontech.com>  Thu, 23 Jul 2026 14:32:27 +0800
+
 npth (1.6-3deepin1) unstable; urgency=medium
 
   * feat: add sw64 support.

@@ -1,11 +1,13 @@
 #!/usr/bin/make -f
 
+MINGW_DISABLED_ARCHES = sw64 loong64
+
 %:
 	dh $@
 
 override_dh_auto_configure:
 	dh_auto_configure --builddirectory=build -- --enable-static
-ifeq ($(DEB_HOST_ARCH), sw64)
+ifneq ($(filter $(MINGW_DISABLED_ARCHES),$(DEB_HOST_ARCH)),)
 	: > debian/libnpth-mingw-w64-dev.install
 endif
 override_dh_auto_build-arch:
@@ -17,7 +19,7 @@ override_dh_auto_install-arch:
 override_dh_makeshlibs:
 	dh_makeshlibs -V
 
-ifneq ($(DEB_HOST_ARCH), sw64)
+ifeq ($(filter $(MINGW_DISABLED_ARCHES),$(DEB_HOST_ARCH)),)
 ### "arch-independent" Windows builds: ###
 
 WIN_FLAGS=LDFLAGS="-Xlinker --no-insert-timestamp" \
